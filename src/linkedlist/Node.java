@@ -1,9 +1,10 @@
 package linkedlist;
 
-class Node {
-    int data;
+class Node<T> {
+    public Node(){};
+    T data;
     Node next;
-    public Node(int data){
+    public Node(T data){
         this.data = data;
         next = null;
     }

@@ -1,11 +1,11 @@
 package linkedlist;
 
-public class LinkedList{
+public class LinkedList<T>{
 
     /**
      * start of list
      */
-    private Node head;
+    private Node<T> head;
     private int size;
     public LinkedList(){
         size = 0;
@@ -31,7 +31,7 @@ public class LinkedList{
 
     /**
      * return the number of nodes in linked list
-     * @return
+     * @return size of list
      */
     public int getSize(){
         return size;
@@ -40,10 +40,10 @@ public class LinkedList{
     /**
      * inset element in end of linked list with time O(n)
      * n is the current number of nodes
-     * @param data
+     * @param data need to save in linked list
      */
-    public void insertBack(int data){
-        Node newNode = new Node(data);
+    public void insertBack(T data){
+        Node<T> newNode = new Node(data);
         updateSize(1);
         if(head == null){
             head = newNode;
@@ -75,10 +75,10 @@ public class LinkedList{
 
     /**
      * insert element in front of linked list with time O(1)
-     * @param data
+     * @param data need to save in linked list
      */
-    public void insertFront(int data){
-        Node newNode = new Node(data);
+    public void insertFront(T data){
+        Node<T> newNode = new Node(data);
         updateSize(1);
         if(isEmpty()){
             head = newNode;
@@ -93,12 +93,12 @@ public class LinkedList{
      * @param data need to save in linked list
      * @param order the position to insert in based 0
      */
-    public void insertInOrder(int data, int order){
+    public void insertInOrder(T data, int order){
         if(order >= getSize()){
             System.out.println("Out of bound");
             return;
         }
-        Node newNode = new Node(data);
+        Node<T> newNode = new Node(data);
         updateSize(1);
         int cnt = 0;
         Node current = head;
@@ -113,10 +113,10 @@ public class LinkedList{
 
     /**
      * find the element is in list or not
-     * @param data
+     * @param data to search in list
      * @return element exist or not
      */
-    public boolean search(int data){
+    public boolean search(T data){
         if(isEmpty()){
             return false;
         }
@@ -183,10 +183,10 @@ public class LinkedList{
 
     /**
      * update the data of node by its order
-     * @param newValue
+     * @param newValue new value to update
      * @param index in zero based
      */
-    public void updateValueByIndex(int newValue, int index){
+    public void updateValueByIndex(T newValue, int index){
         if(index >= getSize()){
             System.out.println("Out of bound");
             return;
@@ -202,9 +202,9 @@ public class LinkedList{
 
     /**
      * get data of head (front of list) and exit if the list is empty
-     * @return
+     * @return data of head
      */
-    public int getFront(){
+    public T getFront(){
         if(isEmpty()){
             System.exit(1);
         }
@@ -213,16 +213,16 @@ public class LinkedList{
 
     /**
      * return the last element of the list
-     * @return
+     * @return data of last element
      */
-    public int getBack(){
+    public T getBack(){
         if (isEmpty()){
             System.exit(1);
         }
-        Node current = head;
+        Node<T> current = head;
         while (current.next != null){
             current = current.next;
         }
-        return  current.data;
+        return current.data;
     }
 }
