@@ -28,6 +28,22 @@ public class Main {
         list.deleteByOrder(3);
         System.out.println(list.getSize());
         list.printForward();
+        System.out.println("--------------------------------------------");
+        System.out.println(list.getFront());
+        System.out.println("--------------------------------------------");
+        System.out.println(list.getBack());
+        System.out.println("--------------------------------------------");
+        list.deleteBack();
+        System.out.println(list.getSize());
+        list.printForward();
+        System.out.println("--------------------------------------------");
+        System.out.println(list.searchForward(10));
+        System.out.println(list.searchForward(50));
+        System.out.println("--------------------------------------------");
+        System.out.println(list.searchBackward(1));
+        System.out.println(list.searchBackward(100));
+        System.out.println("--------------------------------------------");
+        list.printBackward();
 
     }
 }

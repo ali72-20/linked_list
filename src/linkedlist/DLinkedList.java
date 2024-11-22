@@ -80,7 +80,7 @@ public class DLinkedList<T> {
      * @param order the position you need you insert
      */
     public void insertByOrder(T data, int order){
-        if(order >= size){
+        if(order >= size || order < 0){
             System.out.println("Out of bound");
             return;
         }
@@ -145,6 +145,7 @@ public class DLinkedList<T> {
         }
         updateSize(-1);
         head = head.next;
+        head.prev = null;
     }
 
     /**
@@ -157,9 +158,14 @@ public class DLinkedList<T> {
         }
         updateSize(-1);
         tail = tail.prev;
+        tail.next = null;
     }
 
 
+    /**
+     * delete element from list by order
+     * @param order order is zero based
+     */
     public void deleteByOrder(int order){
         if(isEmpty() || order >= size || order < 0){
             System.exit(1);
