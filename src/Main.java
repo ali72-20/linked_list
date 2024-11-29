@@ -50,5 +50,20 @@ public class Main {
         System.out.println(list.getSize());
         list.printList();;
         printLine();
+        list.insertInOrder(70, 11);
+        System.out.println(list.getSize());
+        printLine();
+        list.insertInOrder(-1,0);
+        System.out.println(list.getSize());
+        list.printList();
+        printLine();
+        list.insertInOrder(18,4);
+        System.out.println(list.getSize());
+        list.printList();
+        printLine();
+        list.insertInOrder(36,6);
+        System.out.println(list.getSize());
+        list.printList();
+        printLine();
     }
 }

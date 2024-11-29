@@ -43,7 +43,31 @@ public class CircularLinkedList<T> {
         last.next = newNode;
         last = newNode;
     }
+    public void insertInOrder(T data, int order){
+        if(order > getSize()){
+            System.out.println("Out of bound");
+            return;
+        }
+        if(order == 0){
+            insertFront(data);
+            return;
+        }
+        if(order == getSize()){
+            insertBack(data);
+            return;
+        }
+        updateSize(1);
+        Node<T> newNode = new Node<>(data);
 
+        int currentOrder = 0;
+        Node<T> currentNode = last.next;
+        while (currentOrder + 1 < order){
+            currentOrder++;
+            currentNode = currentNode.next;
+        }
+        newNode.next = currentNode.next;
+        currentNode.next = newNode;
+    }
     public void deleteFront(){
         if(isEmpty()){
             System.exit(1);
